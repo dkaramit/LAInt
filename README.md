@@ -13,10 +13,10 @@ template< class LD >
 
 lai::LocalAdaptive< LD >::integrate(funcType integrand, const std::vector<LD> &X, 
                         const LD & atol, const LD & rtol, const unsigned int & maxDivisions, 
-                        ruleType rule)
+                        integrationRuleType integrationRule)
 </code>,
 
-where `LD` is the numeric type,  `funcType = std::function<LD(LD x)>`, and `ruleType = std::function<LD(std::function<LD(LD)> integrand, const LD & x0, const LD & x1)>`. 
+where `LD` is the numeric type,  `funcType = std::function<LD(LD x)>`, and `integrationRuleType = std::function<LD(std::function<LD(LD)> integrand, const LD & x0, const LD & x1)>`. 
 
 The arguments are:
 
@@ -24,6 +24,7 @@ The arguments are:
 1. X: integration cells. These are the ones that will be subdivided. 
 1. atol,rtol:  absolute and relative tolerance. These are used to decide whether the integral in a cell has converged. 
 1. maxDivisions: Maximum number of subdivisions of each cell. 
+1. integrationRule: Integration rule to be used. 
 
 You can implement a new integration rule as 
 
