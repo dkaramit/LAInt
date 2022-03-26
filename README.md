@@ -31,5 +31,7 @@ You can implement a new integration rule as
 <code>
 template<class LD>
 LD Rule(std::function<LD(LD)> integrand, const LD & x0, const LD & x1){
-		return</code> $\int_{x_0}^{x_1} \ dx$ `integrand`$(x)$`;
-}`
+		return \int_{x_0}^{x_1} \ dx integrand(x);
+}
+
+</code>
