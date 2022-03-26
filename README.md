@@ -2,7 +2,7 @@
 Local Adaptive 1D integration
 
 Everything is in ```LAInt.hpp```. The class LocalAdaptive has two static methods: `partialIntegral` and `integrate`. The first calculates 
-the integral in a cell, and subdivides it until two consecutive subdivisions give alsmost the same result. The second method, runs
+the integral in a cell, and subdivides it until two consecutive subdivisions give almost the same result. The second method, runs
 the first in the entire integration region.
 
 
@@ -31,7 +31,5 @@ You can implement a new integration rule as
 <code>
 template<class LD>
 LD Rule(std::function<LD(LD)> integrand, const LD & x0, const LD & x1){
-		return $\int_{x_0}^{x_1} \ dx$ integrand$(x)$;
-}
-
-</code>
+		return</code> $\int_{x_0}^{x_1} \ dx$ `integrand`$(x)$`;
+}`
