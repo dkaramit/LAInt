@@ -1,8 +1,8 @@
 # LAInt
 Local Adaptive 1D integration
 
-Everything is in ```LAInt.hpp```. The class LocalAdaptive has two static methods: partialIntegral and integrate. The first calculates 
-the integral in a cell [x0,x1], and subdivides it until two consecutive subdivisions give alsmost the same result. The second method, runs
+Everything is in ```LAInt.hpp```. The class LocalAdaptive has two static methods: `partialIntegral` and `integrate`. The first calculates 
+the integral in a cell, and subdivides it until two consecutive subdivisions give alsmost the same result. The second method, runs
 the first in the entire integration region.
 
 
