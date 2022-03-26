@@ -11,8 +11,7 @@ The signature of integrate is:
 <code>
 template< class LD > 
 
-lai::LocalAdaptive< LD >::integrate(
-                        funcType integrand, const std::vector<LD> &X, 
+lai::LocalAdaptive< LD >::integrate(funcType integrand, const std::vector<LD> &X, 
                         const LD & atol, const LD & rtol, const unsigned int & maxDivisions, 
                         ruleType rule)
 </code>,
@@ -32,6 +31,8 @@ You can implement a new integration rule as
 template< class LD >
 
 LD Rule(std::function< LD(LD) > integrand, const LD & x0, const LD & x1){
+
 		return /*integral for [x0,x1]*/;
+
 }
 </code>
