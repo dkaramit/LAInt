@@ -31,5 +31,5 @@ You can implement a new integration rule as
 template< class LD >
 
 LD Rule(std::function< LD(LD) > integrand, const LD & x0, const LD & x1)
-{return /*integral for [x0,x1]*/;}
+{return **integral for [x0,x1]**;}
 </code>
