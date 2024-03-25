@@ -189,12 +189,12 @@ namespace lai
 				
 				Example:
 				let's say that you have
-					std::function g = [](double x, double y) { return (8*x-5*y)/(x+y); };
+					std::function g = [](LD x, LD y) { return (8*x-5*y)/(x+y); };
 
 					then, f(g) will be executed as this
 			
-					std::function q = [&](double y) { 
-						std::function p = [&](double x){return g(x,y);};
+					std::function q = [&](LD y) { 
+						std::function p = [&](LD x){return g(x,y);};
 						return f( p )  ; 
 					};
 					
@@ -202,12 +202,12 @@ namespace lai
 				*/
 
 				std::function q = [&](Args...args) { 
-					std::function p = [&](double x){return integrand(x,args...);};
-					std::vector<std::vector<double>> first_X{X[0]};
+					std::function p = [&](LD x){return integrand(x,args...);};
+					std::vector<std::vector<LD>> first_X{X[0]};
 					return integrate(p, first_X, atol, rtol, maxDivisions, integrationRule)  ; 
 				};
 
-				std::vector<std::vector<double>> rest_X;
+				std::vector<std::vector<LD>> rest_X;
 				for(size_t i=1; i<X.size(); ++i) { rest_X.push_back(X[i]); }
 
 				return integrate(q, rest_X, atol, rtol, maxDivisions, integrationRule);
