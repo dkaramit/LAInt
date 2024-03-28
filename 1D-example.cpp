@@ -36,6 +36,7 @@ int main(){
 	/*The results should agree with this*/
 	std::cout << NarrowWidthApprox([&m,&Gamma](LD s){return 1;} , m, Gamma  )<< "\n";
 
+	std::cout << lai::LocalAdaptive<LD>::integrate(integrand,misc::linspace<LD>(0,1,500),1e-2,1e-2,500,lai::NaiveMonteCarloRule<LD,5000>)<< "\n";
 	std::cout << lai::LocalAdaptive<LD>::integrate(integrand,misc::linspace<LD>(0,1,60),1e-8,1e-8,50,lai::LHSRule<LD>)<< "\n";
 	std::cout << lai::LocalAdaptive<LD>::integrate(integrand,misc::linspace<LD>(0,1,60),1e-8,1e-8,50,lai::RHSRule<LD>)<< "\n";
 	std::cout << lai::LocalAdaptive<LD>::integrate(integrand,misc::linspace<LD>(0,1,60),1e-8,1e-8,50,lai::MidpointRule<LD>)<< "\n";

@@ -12,9 +12,24 @@
 #include <vector>
 #include <cmath>
 #include <functional>
+#include<random>
 
 namespace lai
 {
+	/*(VERY) Naive Monte carlo integration rule*/
+	template <class LD, size_t N, class REngine=std::mt19937_64>
+	LD NaiveMonteCarloRule(std::function<LD(LD)> integrand, const LD &x0, const LD &x1)
+	{
+		static std::mt19937_64 RndE;
+		static std::random_device RndDiv;
+		std::uniform_real_distribution<LD> UnDist(x0,x1);
+		RndE.seed(RndDiv());
+		
+		LD dx = x1 - x0;
+		LD res=0;
+		for(size_t i=0;i<N;++i){res+=integrand(UnDist(RndE));}
+		return res/N*dx;
+	}
 
 	template <class LD>
 	LD GaussLobattoRule(std::function<LD(LD)> integrand, const LD &x0, const LD &x1)

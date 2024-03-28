@@ -8,15 +8,12 @@ Path=$(PWD)
 CC=g++
 FLG= -O3 -std=c++17 -lm  -I$(rootDir) -Wall 
 
+EXE = $(shell find . -type f -name '*.cpp' | sed 's/\.cpp/.run/g' | sed 's/\.\///g')
 
-all:  1D-example.run 3D-example.run
+all:  $(EXE)
 
-1D-example.run: 1D-example.cpp  $(Headers) makefile 
+%.run: %.cpp makefile $(Headers) makefile 
 	$(CC) -o $@ $< $(FLG) 
-
-3D-example.run: 3D-example.cpp  $(Headers) makefile 
-	$(CC) -o $@ $< $(FLG) 
-
 
 clean:
 	rm -rf *.run
